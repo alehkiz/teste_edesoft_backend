@@ -5,9 +5,9 @@
     <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
-            {{ macros.render_field(form.file, class='form-control') }}
+            {{ form.file(class='form-control') }}
         </div>  
-        <div class="mb-3">
+        {#<div class="mb-3">
             {{ macros.render_field(form.reference_date, class='form-control')}}
         </div>
         <div class="mb-3">
@@ -33,7 +33,7 @@
         <br>
         {{ macros.render_field(form.file_update)}}
         </div>
-        {% endif %}
+        {% endif %}#}
         {{form.submit()}}
     </form>
 {% endblock %}
