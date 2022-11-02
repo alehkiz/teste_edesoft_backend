@@ -2,11 +2,24 @@
 
 
 {% block app_content %}
-    <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+    <h1>Enviar planilha</h1>
+    <form action="{{url_for('main.upload')}}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="mb-3">
+            {% if form.file.errors %}
+            {{ form.file(class='form-control is-invalid') }}
+            <!-- <ul class='invalid-feedback'> -->
+            {% for error in form.file.errors %}
+            <!-- <li>{{ error }}</li> -->
+            <div class='invalid-feedback'>{{ error }} </div>
+            {% endfor %}
+            <!-- </ul> -->
+            
+            {% else %}
             {{ form.file(class='form-control') }}
-        </div>  
+            {% endif %}
+        </div>
+        
         {#<div class="mb-3">
             {{ macros.render_field(form.reference_date, class='form-control')}}
         </div>

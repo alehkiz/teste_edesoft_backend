@@ -1,0 +1,29 @@
+html {
+    overflow-y: scroll;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    /* display: flex; */
+    align-items: center;
+    /* padding-top: 80px; */
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    margin-bottom: 60px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.navbar {
+    margin-bottom: 60px;
+}
+
+
+table {text-align: left;}
+table thead th {text-align: left;}

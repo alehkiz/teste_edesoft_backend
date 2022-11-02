@@ -4,6 +4,7 @@ import app
 
 class BaseConfig(object):
     PROJECT_NAME = 'Desafio'
+    SITE_TITLE = "Desafio Edesoft"
     SECRET_KEY = environ.get('SERVER_KEY', 'ChAvE AleTorIa-d4b68abb2e9f7eb')#Apenas para o desafio
     APP_DIR = abspath(dirname(app.__file__))
     DEV_DB = join(APP_DIR, r'db.db')
@@ -15,9 +16,10 @@ class BaseConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOAD_FOLDER = join(APP_DIR, r'uploads/')
     MAX_UPLOAD_FILE_MB = 50
-    MAX_CONTENT_PATH = 52428800
-    ALLOWED_EXTENSIONS = {'csv', 'xlsx'}
-
+    MAX_CONTENT_PATH = 52428800 #50MB
+    ALLOWED_EXTENSIONS = ['csv']#, 'xlsx', 'xls']
+    ALLOWED_MIMETYPES = ['text/plain', 'text/csv']#, 'application/octet-stream', , 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
+    DEPARA = join(APP_DIR, r'support/depara.xlsx')
 
 class DevelopmentConfig(BaseConfig):
     SQLALCHEMY_DATABASE_URI = f'sqlite:///{BaseConfig.DEV_DB}'
