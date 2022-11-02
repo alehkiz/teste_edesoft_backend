@@ -37,7 +37,7 @@
 docker-compose -f docker-compose.yml up -d --build
 ```
 
-Se você estiver no Linux, altere o fim da linha para `LF`
+Se você estiver no Linux, altere o fim da linha para `LF` no arquivo `entrypoint.sh`
 
 ## 📝 Licença
 
